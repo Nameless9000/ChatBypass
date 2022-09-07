@@ -1,5 +1,5 @@
 local bypassedWords = {
-    ["discord"] = "disco_d",
+    ["discord"] = "discor_d",
     ["ass"] = "as_s",
     ["gay"] = "g_ay",
     ["gays"] = "g_ays",
