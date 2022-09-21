@@ -1,3 +1,5 @@
+shared.optionalWords = shared.optionalWords or false
+
 local bypassedWords = {
     ["discord"] = "discor_d",
     ["ass"] = "as_s",
@@ -177,18 +179,23 @@ local bypassedWords = {
     ["discord"] = "disco_rd",
     ["instagram"] = "inst_agram",
     ["snapchat"] = "snap_chat",
-		["cum"] = "cu_m",
-		["cums"] = "cu_ms",
-		["cumming"] = "cu_mming",
-		["drug"] = "dr_ug",
-		["drugs"] = "dr_ugs",
-		["drugging"] = "dr_ugging",
-		["nutsack"] = "nu_tsack",
-		["ballsack"] = "ba_llsack",
-		["sperm"] = "spe_rm",
-		["alcoholic"] = "alco_holic",
-		["jizz"] = "ji_zz",
-    ["and"] = "a_nd",
+	["cum"] = "cu_m",
+	["cums"] = "cu_ms",
+	["cumming"] = "cu_mming",
+	["drug"] = "dr_ug",
+	["drugs"] = "dr_ugs",
+	["drugging"] = "dr_ugging",
+	["nutsack"] = "nu_tsack",
+	["ballsack"] = "ba_llsack",
+	["sperm"] = "spe_rm",
+	["alcoholic"] = "alco_holic",
+	["jizz"] = "ji_zz",
+	["isis"] = "is_is"
+}
+
+-- optional words
+local optWords = {
+	["and"] = "a_nd",
     ["or"] = "o_r",
     ["if"] = "i_f",
     ["else"] = "el_se",
@@ -235,6 +242,12 @@ local bypassedWords = {
     ["said"] = "sa_id",
     ["can"] = "ca_n"
 }
+
+if shared.optionalWords == true then
+	for key, value in next, optWords do
+		bypassedWords[key] = value
+	end
+end
 
 local bypassStr = "%s{{aieixzvzx:%s}}"
 
