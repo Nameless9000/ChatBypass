@@ -249,13 +249,19 @@ if shared.optionalWords == true then
 	end
 end
 
+local bypassBlock = {}
+
+for key, value in next, bypassedWords do
+	bypassBlock[key] = value
+end
+
 local bypassStr = "%s{{aieixzvzx:%s}}"
 
 function bypassMessage(message)
     local bypassedMessage = {}
 
     for index, word in ipairs( message:split(" ") ) do
-         local wordFormat = bypassedWords[word]
+         local wordFormat = bypassBlock[word]
          if (not wordFormat) then
               bypassedMessage[index] = word
               continue
